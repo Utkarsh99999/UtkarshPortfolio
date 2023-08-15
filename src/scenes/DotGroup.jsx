@@ -45,14 +45,7 @@ const DotGroup = ({ selectedPage, setSelectedPage }) => {
         } w-3 h-3 rounded-full`}
         onClick={() => setSelectedPage("contact")}
       />
-
-      <AnchorLink
-        href="#footer"
-        className={`${
-          selectedPage === "footer" ? selectedStyles : "bg-dark-grey"
-        } w-3 h-3 rounded-full`}
-        onClick={() => setSelectedPage("footer")}
-      />
+      
     </div>
   );
 };
