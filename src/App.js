@@ -46,8 +46,6 @@ function App() {
         </motion.div>
       </div>
 
-      <LineGradient />
-      </div>
 
       <LineGradient />
 
