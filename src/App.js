@@ -39,7 +39,7 @@ function App() {
     setSelectedPage={setSelectedPage}/>
       <div className="w-5/6 mx-auto md:h-full">
         <motion.div
-          margin="0 0 -200px 0" 
+          margin="0 0 10px 0" 
           amount="all"
           onViewportEnter={() => setSelectedPage("home")}
         >
