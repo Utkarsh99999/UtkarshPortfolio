@@ -61,7 +61,7 @@ const Testimonials = () => {
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1 }} variants={{ hidden: { opacity: 0, scale: 0.5 },
             visible: { opacity: 1, scale: 1 }}}>
-          <img key={index} src={val} alt={val} style={{width:"100px",height:'auto'}} />
+          <img key={index} src={val} alt={val} style={{width:"80px",height:'auto'}} />
         </motion.div>
        )})}
       </div>
