@@ -26,7 +26,7 @@ const techstack2 =[
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="pt-16 pb-16">
+    <section id="techstack" className="pt-16 pb-16">
       {/* HEADING */}
       <motion.div
         className="md:w-1/3 text-center md:text-left"
