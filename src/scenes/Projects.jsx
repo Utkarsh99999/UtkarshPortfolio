@@ -26,7 +26,7 @@ const Project = ({ title ,Description }) => {
     <motion.div variants={projectVariant} className="relative">
       <ReactCardFlip isFlipped={flip} flipDirection="vertical">
       <div className="relative">
-      <img src={`../Projects/${title}.png`} alt={projectTitle} />
+      <img src={`../assets/${title}.png`} alt={projectTitle} className="max-h-[350px] max-w-[400px]"/>
       <button onClick={()=>{SetFlip(!flip)}} className="absolute bottom-5 left-28 p-2
        text-deep-blue border border-solid bg-red" >Project Description</button>
       </div>
@@ -106,6 +106,7 @@ const Projects = () => {
           {/* ROW 2 */}
           <Project title="project-3" Description={Description.d3}/>
           <Project title="project-4"Description={Description.d4}/>
+          
           <div className="flex justify-center text-center items-center p-10 bg-blue
               max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
           >
