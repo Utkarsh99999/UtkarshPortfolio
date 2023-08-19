@@ -33,6 +33,16 @@ const SocialMediaIcons = () => {
       >
         <img alt="instagram-link" src="../assets/instagram.png" />
       </a>
+
+       <a
+        className="hover:opacity-50 transition duration-500"
+        href="assets/utkarsh.pdf"
+        target="_blank"
+        rel="noreferrer"
+        download='Utkarsh_CV.pdf'
+      >
+        <img alt="resume-link" className="invert" src="../assets/resume.png" height={30} width={30}/>
+      </a>
       
     </div>
   );
