@@ -1,23 +1,33 @@
 import LineGradient from "../components/LineGradient";
-import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import emailjs, { init } from "@emailjs/browser";
+import {useState} from 'react';
 
 const Contact = () => {
-  const {
-    register,trigger,
-    formState: { errors },
-  } = useForm();
+ init("uhvfdrYYbJVg0-Exp");  
+ const [name,setName] = useState();
+ const [email,setEmail] = useState();
+ const [message,setMessage] = useState();
 
-  const onSubmit = async (e) => {
-    console.log("~ e", e);
-    const isValid = await trigger();
-    if (!isValid) {
-      e.preventDefault();
-    }
+ const handleSubmit = (e)=>{
+
+  e.preventDefault();
+  var templateParams = {
+    name: name,
+    email: email,
+    message:message,
   };
+ 
+   emailjs.send('service_az1uqnb', 'template_xxpxepi', templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
+  }
 
   return (
-    <section id="contact" className="contact py-48">
+    <section id="contact" className="contact py-10">
       {/* HEADINGS */}
       <motion.div
         initial="hidden"
@@ -68,42 +78,27 @@ const Contact = () => {
           className="basis-1/2 mt-10 md:mt-0"
         >
           <form
-            target="_blank"
-            onSubmit={onSubmit}
-            action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
-            method="POST"
+            onSubmit={handleSubmit}
           >
             <input
               className="w-full bg-blue font-semibold placeholder-opaque-black p-3"
               type="text"
               placeholder="NAME"
-              {...register("name", {
-                required: true,
-                maxLength: 100,
-              })}
+              value={name}
+              onChange={(e)=>{
+                setName(e.target.value)
+              }}
             />
-            {errors.name && (
-              <p className="text-red mt-1">
-                {errors.name.type === "required" && "This field is required."}
-                {errors.name.type === "maxLength" && "Max length is 100 char."}
-              </p>
-            )}
 
             <input
               className="w-full bg-blue font-semibold placeholder-opaque-black p-3 mt-5"
               type="text"
               placeholder="EMAIL"
-              {...register("email", {
-                required: true,
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              })}
+              value={email}
+              onChange={(e)=>{
+                setEmail(e.target.value)
+              }}
             />
-            {errors.email && (
-              <p className="text-red mt-1">
-                {errors.email.type === "required" && "This field is required."}
-                {errors.email.type === "pattern" && "Invalid email address."}
-              </p>
-            )}
 
             <textarea
               className="w-full bg-blue font-semibold placeholder-opaque-black p-3 mt-5"
@@ -111,19 +106,11 @@ const Contact = () => {
               placeholder="MESSAGE"
               rows="4"
               cols="50"
-              {...register("message", {
-                required: true,
-                maxLength: 2000,
-              })}
+              value={message}
+              onChange={(e)=>{
+                setMessage(e.target.value)
+              }}
             />
-            {errors.message && (
-              <p className="text-red mt-1">
-                {errors.message.type === "required" &&
-                  "This field is required."}
-                {errors.message.type === "maxLength" &&
-                  "Max length is 2000 char."}
-              </p>
-            )}
 
             <button
               className="p-5 bg-yellow font-semibold text-deep-blue mt-5 hover:bg-red hover:text-white transition duration-500"
