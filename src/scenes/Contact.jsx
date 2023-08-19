@@ -20,6 +20,7 @@ const Contact = () => {
  
    emailjs.send('service_az1uqnb', 'template_xxpxepi', templateParams)
     .then(function(response) {
+     setName("");setEmail("");setMessage("");
        console.log('SUCCESS!', response.status, response.text);
     }, function(error) {
        console.log('FAILED...', error);
