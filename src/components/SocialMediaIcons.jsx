@@ -36,7 +36,7 @@ const SocialMediaIcons = () => {
 
        <a
         className="hover:opacity-50 transition duration-500"
-        href="assets/utkarsh.pdf"
+        href="assets/Utkarsh_CV.pdf"
         target="_blank"
         rel="noreferrer"
         download='Utkarsh_CV.pdf'
